@@ -11,7 +11,7 @@ namespace GoogleMaps.LocationServices
     {
         #region Constants
         const string API_REGION_FROM_LATLONG = "maps.googleapis.com/maps/api/geocode/xml?latlng={0},{1}&sensor=false";
-        const string API_LATLONG_FROM_ADDRESS = "maps.googleapis.com/maps/api/geocode/xml?key=AIzaSyBM5XHMVPJblN5GNvNgkD2ep14x63uGeOE&address={0}&sensor=false";
+        const string API_LATLONG_FROM_ADDRESS = "maps.googleapis.com/maps/api/geocode/xml?key=AIzaSyD1QA9Ltvuv_tI9sGER_54xkDVfsdX3c_o&address={0}&sensor=false";
         const string API_DIRECTIONS = "maps.googleapis.com/maps/api/directions/xml?origin={0}&destination={1}&sensor=false";
         #endregion
 
