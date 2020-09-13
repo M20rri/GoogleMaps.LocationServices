@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
 namespace GoogleMaps.LocationServices
@@ -10,8 +8,8 @@ namespace GoogleMaps.LocationServices
     public class GoogleLocationService : ILocationService
     {
         #region Constants
-        const string API_REGION_FROM_LATLONG = "maps.googleapis.com/maps/api/geocode/xml?latlng={0},{1}&sensor=false";
-        const string API_LATLONG_FROM_ADDRESS = "maps.googleapis.com/maps/api/geocode/xml?key=AIzaSyD1QA9Ltvuv_tI9sGER_54xkDVfsdX3c_o&address={0}&sensor=false";
+        const string API_REGION_FROM_LATLONG = "maps.googleapis.com/maps/api/geocode/xml?key=AIzaSyDiS41ymvD77_ewd9d7O05LQrBbXB_znpg&latlng={0},{1}&sensor=false";
+        const string API_LATLONG_FROM_ADDRESS = "maps.googleapis.com/maps/api/geocode/xml?key=AIzaSyDiS41ymvD77_ewd9d7O05LQrBbXB_znpg&address={0}&sensor=false";
         const string API_DIRECTIONS = "maps.googleapis.com/maps/api/directions/xml?origin={0}&destination={1}&sensor=false";
         #endregion
 
@@ -113,7 +111,7 @@ namespace GoogleMaps.LocationServices
         {
             XDocument doc = XDocument.Load(string.Format(APIUrlLatLongFromAddress, address));
             var els = doc.Descendants("result").Descendants("geometry").Descendants("location").First();
-            if (null != els)
+            if (els != null)
             {
                 var latitude =  ParseUS((els.Nodes().First() as XElement).Value);
                 var longitude =  ParseUS((els.Nodes().ElementAt(1) as XElement).Value);
