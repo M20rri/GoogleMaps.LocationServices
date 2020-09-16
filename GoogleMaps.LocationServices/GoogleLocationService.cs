@@ -93,10 +93,11 @@ namespace GoogleMaps.LocationServices
         {
             XDocument doc = XDocument.Load(string.Format(APIUrlRegionFromLatLong, latitude, longitude));
 
-            var els = doc.Descendants("result").First().Descendants("address_component").Where(s => s.Descendants("type").First().Value == "administrative_area_level_1").FirstOrDefault();
+            //var els = doc.Descendants("result").First().Descendants("address_component").Where(s => s.Descendants("type").First().Value == "administrative_area_level_1").FirstOrDefault();
+            var els = doc.Descendants("result").FirstOrDefault();
             if (null != els)
             {
-                return new Region() { Name = els.Descendants("long_name").First().Value, ShortCode = els.Descendants("short_name").First().Value };
+                return new Region() { Name = els.Descendants("formatted_address").First().Value, ShortCode = els.Descendants("formatted_address").First().Value };
             }
             return null;
         }
