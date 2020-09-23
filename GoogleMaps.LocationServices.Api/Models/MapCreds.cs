@@ -9,6 +9,12 @@ namespace GoogleMaps.LocationServices.Api.Models
     }
 
 
+    public class GooglemapResponse : MapCreds
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
     public class AddressData
     {
         public string Address { get; set; }
@@ -20,4 +26,4 @@ namespace GoogleMaps.LocationServices.Api.Models
 
     }
 
-}    
+}
